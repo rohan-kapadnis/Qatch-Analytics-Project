@@ -1,0 +1,3454 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20194.19.1211.1636                               -->
+<workbook source-build='2019.4.1 (20194.19.1211.1636)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts ignorable='true' predowngraded='true' />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='reactions+' inline='true' name='federated.1f6zem91byqfaa1apbhph0nozth8' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='reactions' name='textscan.0w82ieh0taivrp1by6n9u08v2cmc'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='reactions.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[reactions.csv].[outbound_text_id]' />
+              <expression op='[purchases.csv].[outbound_text_id]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.0w82ieh0taivrp1by6n9u08v2cmc' name='reactions.csv' table='[reactions#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='inbound_text_id' ordinal='0' />
+              <column datatype='datetime' name='inbound_ text _date' ordinal='1' />
+              <column datatype='string' name='reaction_type' ordinal='2' />
+              <column datatype='integer' name='outbound_text_id' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0w82ieh0taivrp1by6n9u08v2cmc' name='purchases.csv' table='[purchases#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='purchase id' ordinal='0' />
+              <column datatype='date' name='purchase_date' ordinal='1' />
+              <column datatype='real' name='amount' ordinal='2' />
+              <column datatype='real' name='commission' ordinal='3' />
+              <column datatype='integer' name='outbound_text_id' ordinal='4' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[amount]' value='[purchases.csv].[amount]' />
+          <map key='[commission]' value='[purchases.csv].[commission]' />
+          <map key='[inbound_ text _date]' value='[reactions.csv].[inbound_ text _date]' />
+          <map key='[inbound_text_id]' value='[reactions.csv].[inbound_text_id]' />
+          <map key='[outbound_text_id (purchases.csv)]' value='[purchases.csv].[outbound_text_id]' />
+          <map key='[outbound_text_id]' value='[reactions.csv].[outbound_text_id]' />
+          <map key='[purchase id]' value='[purchases.csv].[purchase id]' />
+          <map key='[purchase_date]' value='[purchases.csv].[purchase_date]' />
+          <map key='[reaction_type]' value='[reactions.csv].[reaction_type]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>inbound_text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[inbound_text_id]</local-name>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias>inbound_text_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>inbound_ text _date</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[inbound_ text _date]</local-name>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias>inbound_ text _date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reaction_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[reaction_type]</local-name>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias>reaction_type</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>outbound_text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[outbound_text_id]</local-name>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias>outbound_text_id</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchase id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[purchase id]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>purchase id</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchase_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[purchase_date]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>purchase_date</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>amount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[amount]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>amount</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>commission</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[commission]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>commission</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>outbound_text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[outbound_text_id (purchases.csv)]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>outbound_text_id</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Amount' datatype='real' name='[amount]' role='measure' type='quantitative' />
+      <column caption='Commission' datatype='real' name='[commission]' role='measure' type='quantitative' />
+      <column caption='Inbound  Text  Date' datatype='datetime' name='[inbound_ text _date]' role='dimension' type='ordinal' />
+      <column caption='Inbound Text Id' datatype='integer' name='[inbound_text_id]' role='dimension' type='ordinal' />
+      <column caption='Outbound Text Id (Purchases.Csv)' datatype='integer' name='[outbound_text_id (purchases.csv)]' role='dimension' type='ordinal' />
+      <column caption='Outbound Text Id' datatype='integer' name='[outbound_text_id]' role='dimension' type='ordinal' />
+      <column caption='Purchase Id' datatype='integer' name='[purchase id]' role='dimension' type='ordinal' />
+      <column caption='Purchase Date' datatype='date' name='[purchase_date]' role='dimension' type='ordinal' />
+      <column caption='Reaction Type' datatype='string' name='[reaction_type]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.604269' measure-ordering='alphabetic' measure-percentage='0.395731' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='outbound_texts+' inline='true' name='federated.16hr7tw1ng1yfs1b74ene0g8ejrw' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='outbound_texts' name='textscan.11wnv1p1gbuzjv10nonq51pepe3m'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='outbound_texts.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[outbound_texts.csv].[text_id]' />
+              <expression op='[purchases.csv].[outbound_text_id]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.11wnv1p1gbuzjv10nonq51pepe3m' name='outbound_texts.csv' table='[outbound_texts#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='text_id' ordinal='0' />
+              <column datatype='integer' name='uid' ordinal='1' />
+              <column datatype='date' name='text_date' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='textscan.11wnv1p1gbuzjv10nonq51pepe3m' name='purchases.csv' table='[purchases#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='purchase id' ordinal='0' />
+              <column datatype='date' name='purchase_date' ordinal='1' />
+              <column datatype='real' name='amount' ordinal='2' />
+              <column datatype='real' name='commission' ordinal='3' />
+              <column datatype='integer' name='outbound_text_id' ordinal='4' />
+            </columns>
+          </relation>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[outbound_texts.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[text_id]</local-name>
+            <parent-name>[outbound_texts.csv]</parent-name>
+            <remote-alias>text_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>uid</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[uid]</local-name>
+            <parent-name>[outbound_texts.csv]</parent-name>
+            <remote-alias>uid</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>text_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[text_date]</local-name>
+            <parent-name>[outbound_texts.csv]</parent-name>
+            <remote-alias>text_date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchase id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[purchase id]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>purchase id</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchase_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[purchase_date]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>purchase_date</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>amount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[amount]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>amount</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>commission</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[commission]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>commission</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>outbound_text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[outbound_text_id]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>outbound_text_id</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='SentToPurchasedConversionRate' datatype='real' name='[Calculation_279223230673235971]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([purchase id])/COUNT([text_id])' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Amount' datatype='real' name='[amount]' role='measure' type='quantitative' />
+      <column caption='Commission' datatype='real' name='[commission]' role='measure' type='quantitative' />
+      <column caption='Outbound Text Id' datatype='integer' name='[outbound_text_id]' role='dimension' type='ordinal' />
+      <column caption='Purchase Id' datatype='integer' name='[purchase id]' role='dimension' type='ordinal' />
+      <column caption='Purchase Date' datatype='date' name='[purchase_date]' role='dimension' type='ordinal' />
+      <column caption='Text Date' datatype='date' name='[text_date]' role='dimension' type='ordinal' />
+      <column caption='Text Id' datatype='integer' name='[text_id]' role='dimension' type='ordinal' />
+      <column caption='Uid' datatype='integer' name='[uid]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.500821' measure-ordering='alphabetic' measure-percentage='0.499179' rowDisplayCount='223' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='purchases' inline='true' name='federated.1etqg271v8lhjy17tekpv1hrd1nq' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='purchases' name='textscan.0fjmwso13np1rg1005bc81fqjxqu'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='purchases.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0fjmwso13np1rg1005bc81fqjxqu' name='purchases.csv' table='[purchases#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='purchase id' ordinal='0' />
+            <column datatype='date' name='purchase_date' ordinal='1' />
+            <column datatype='real' name='amount' ordinal='2' />
+            <column datatype='real' name='commission' ordinal='3' />
+            <column datatype='integer' name='outbound_text_id' ordinal='4' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchase id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[purchase id]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>purchase id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchase_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[purchase_date]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>purchase_date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>amount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[amount]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>amount</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>commission</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[commission]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>commission</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>outbound_text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[outbound_text_id]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>outbound_text_id</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Amount' datatype='real' name='[amount]' role='measure' type='quantitative' />
+      <column caption='Commission' datatype='real' name='[commission]' role='measure' type='quantitative' />
+      <column caption='Outbound Text Id' datatype='integer' name='[outbound_text_id]' role='dimension' type='ordinal' />
+      <column caption='Purchase Id' datatype='integer' name='[purchase id]' role='dimension' type='ordinal' />
+      <column caption='Purchase Date' datatype='date' name='[purchase_date]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.500821' measure-ordering='alphabetic' measure-percentage='0.499179' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='ReceivedToReactedPerUser' inline='true' name='federated.02asaug04k4e3i1h31y3l09b8k5a' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='ReceivedToReactedPerUser' name='textscan.0yrr7gc1nalbuw1fma2bz13f544e'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='ReceivedToReactedPerUser.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0yrr7gc1nalbuw1fma2bz13f544e' name='ReceivedToReactedPerUser.csv' table='[ReceivedToReactedPerUser#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='userID' ordinal='0' />
+            <column datatype='integer' name='totalReceived' ordinal='1' />
+            <column datatype='integer' name='totalReactions' ordinal='2' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>userID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[userID]</local-name>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias>userID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalReceived</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[totalReceived]</local-name>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias>totalReceived</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalReactions</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[totalReactions]</local-name>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias>totalReactions</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Ratio' datatype='real' name='[Calculation_279223230992977924]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[totalReceived]/[totalReactions]' />
+      </column>
+      <column caption='ReactionToSentRatio' datatype='real' name='[Calculation_279223231353995270]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[totalReactions] / [totalReceived] * 100' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Total Reactions' datatype='integer' name='[totalReactions]' role='measure' type='quantitative' />
+      <column caption='Total Received' datatype='integer' name='[totalReceived]' role='measure' type='quantitative' />
+      <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+      <column-instance column='[totalReactions]' derivation='Sum' name='[sum:totalReactions:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[totalReceived]' derivation='Sum' name='[sum:totalReceived:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.431855' measure-ordering='alphabetic' measure-percentage='0.568145' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.02asaug04k4e3i1h31y3l09b8k5a].[sum:totalReactions:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.02asaug04k4e3i1h31y3l09b8k5a].[sum:totalReceived:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='TotalAmountPerUser' inline='true' name='federated.1e1j1jq1wxw8zx1h008j91hlr4zy' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='TotalAmountPerUser' name='textscan.1pz0uol1kmkh221dta9xk17y7wt6'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='TotalAmountPerUser.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1pz0uol1kmkh221dta9xk17y7wt6' name='TotalAmountPerUser.csv' table='[TotalAmountPerUser#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='UserID' ordinal='0' />
+            <column datatype='real' name='TotalAmount' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[TotalAmountPerUser.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UserID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[UserID]</local-name>
+            <parent-name>[TotalAmountPerUser.csv]</parent-name>
+            <remote-alias>UserID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalAmount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[TotalAmount]</local-name>
+            <parent-name>[TotalAmountPerUser.csv]</parent-name>
+            <remote-alias>TotalAmount</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='top30' datatype='boolean' name='[Calculation_279223231374020619]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='INDEX() &lt;= 30'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Total Amount' datatype='real' name='[TotalAmount]' role='measure' type='quantitative' />
+      <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.466338' measure-ordering='alphabetic' measure-percentage='0.533662' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='reactions' inline='true' name='federated.1mvl5ga0k6rodv11p3s4p128isxi' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='reactions' name='textscan.1wgave20tftwov1bgas7w0f5pmf5'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='reactions.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1wgave20tftwov1bgas7w0f5pmf5' name='reactions.csv' table='[reactions#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='inbound_text_id' ordinal='0' />
+            <column datatype='datetime' name='inbound_ text _date' ordinal='1' />
+            <column datatype='string' name='reaction_type' ordinal='2' />
+            <column datatype='integer' name='outbound_text_id' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>inbound_text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[inbound_text_id]</local-name>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias>inbound_text_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>inbound_ text _date</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[inbound_ text _date]</local-name>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias>inbound_ text _date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reaction_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[reaction_type]</local-name>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias>reaction_type</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>outbound_text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[outbound_text_id]</local-name>
+            <parent-name>[reactions.csv]</parent-name>
+            <remote-alias>outbound_text_id</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Inbound  Text  Date' datatype='datetime' name='[inbound_ text _date]' role='dimension' type='ordinal' />
+      <column caption='Inbound Text Id' datatype='integer' name='[inbound_text_id]' role='dimension' type='ordinal' />
+      <column caption='Outbound Text Id' datatype='integer' name='[outbound_text_id]' role='dimension' type='ordinal' />
+      <column aggregation='CountD' caption='Reaction Type' datatype='string' name='[reaction_type]' role='dimension' type='nominal' />
+      <column-instance column='[inbound_ text _date]' derivation='Month' name='[mn:inbound_ text _date:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[reaction_type]' derivation='None' name='[none:reaction_type:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.551724' measure-ordering='alphabetic' measure-percentage='0.448276' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[mn:inbound_ text _date:ok]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>6</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>8</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>7</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:reaction_type:nk]' type='palette'>
+            <map to='#76b7b2'>
+              <bucket>&quot;Disliked&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Loved&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Liked&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='purchases+' inline='true' name='federated.1m467511g4kbya1cuhanh1i4eccc' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='purchases' name='textscan.1i8fesg0wb86y31agqr8k1kgegn5'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='purchases.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[outbound_texts.csv].[uid]' />
+              <expression op='[purchases.csv].[outbound_text_id]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1i8fesg0wb86y31agqr8k1kgegn5' name='outbound_texts.csv' table='[outbound_texts#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='text_id' ordinal='0' />
+              <column datatype='integer' name='uid' ordinal='1' />
+              <column datatype='date' name='text_date' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1i8fesg0wb86y31agqr8k1kgegn5' name='purchases.csv' table='[purchases#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='purchase id' ordinal='0' />
+              <column datatype='date' name='purchase_date' ordinal='1' />
+              <column datatype='real' name='amount' ordinal='2' />
+              <column datatype='real' name='commission' ordinal='3' />
+              <column datatype='integer' name='outbound_text_id' ordinal='4' />
+            </columns>
+          </relation>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[outbound_texts.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[text_id]</local-name>
+            <parent-name>[outbound_texts.csv]</parent-name>
+            <remote-alias>text_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>uid</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[uid]</local-name>
+            <parent-name>[outbound_texts.csv]</parent-name>
+            <remote-alias>uid</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>text_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[text_date]</local-name>
+            <parent-name>[outbound_texts.csv]</parent-name>
+            <remote-alias>text_date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchase id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[purchase id]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>purchase id</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchase_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[purchase_date]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>purchase_date</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>amount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[amount]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>amount</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>commission</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[commission]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>commission</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>outbound_text_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[outbound_text_id]</local-name>
+            <parent-name>[purchases.csv]</parent-name>
+            <remote-alias>outbound_text_id</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='SentToPurchaseRatio' datatype='real' name='[Calculation_279223231362531335]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([purchase id])/COUNT([text_id]) *100' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Amount' datatype='real' name='[amount]' role='measure' type='quantitative' />
+      <column caption='Commission' datatype='real' name='[commission]' role='measure' type='quantitative' />
+      <column caption='Outbound Text Id' datatype='integer' name='[outbound_text_id]' role='dimension' type='ordinal' />
+      <column caption='Purchase Id' datatype='integer' name='[purchase id]' role='dimension' type='ordinal' />
+      <column caption='Purchase Date' datatype='date' name='[purchase_date]' role='dimension' type='ordinal' />
+      <column caption='Text Date' datatype='date' name='[text_date]' role='dimension' type='ordinal' />
+      <column caption='Text Id' datatype='integer' name='[text_id]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Uid' datatype='integer' name='[uid]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.565284' measure-ordering='alphabetic' measure-percentage='0.434716' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='ReceivedToPurchased' inline='true' name='federated.00vo2hy0pqjj2b12c9zo51m16k8d' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='ReceivedToPurchased' name='textscan.0t2pblh0nhdt0i13l7big1jakxds'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='ReceivedToPurchased.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0t2pblh0nhdt0i13l7big1jakxds' name='ReceivedToPurchased.csv' table='[ReceivedToPurchased#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='UserID' ordinal='0' />
+            <column datatype='integer' name='TotalReceived' ordinal='1' />
+            <column datatype='integer' name='TotalPurchased' ordinal='2' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UserID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[UserID]</local-name>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias>UserID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalReceived</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TotalReceived]</local-name>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias>TotalReceived</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalPurchased</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TotalPurchased]</local-name>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias>TotalPurchased</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='top10' datatype='boolean' name='[Calculation_279223231368228872]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='INDEX() &lt;= 20'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Ratio' datatype='real' name='[Calculation_279223231368802314]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='([TotalPurchased]) / ([TotalReceived]) *100' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Total Purchased' datatype='integer' name='[TotalPurchased]' role='measure' type='quantitative' />
+      <column caption='Total Received' datatype='integer' name='[TotalReceived]' role='measure' type='quantitative' />
+      <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.431855' measure-ordering='alphabetic' measure-percentage='0.568145' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='TotalPurchasesPerUser' inline='true' name='federated.0cluej51i9mh9n16flact01cmxld' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='TotalPurchasesPerUser' name='textscan.0t3kppt05rpgcn14wtvw00djpbqr'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='TotalPurchasesPerUser.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0t3kppt05rpgcn14wtvw00djpbqr' name='TotalPurchasesPerUser.csv' table='[TotalPurchasesPerUser#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='UserID' ordinal='0' />
+            <column datatype='integer' name='TotalPurchases' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[TotalPurchasesPerUser.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UserID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[UserID]</local-name>
+            <parent-name>[TotalPurchasesPerUser.csv]</parent-name>
+            <remote-alias>UserID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalPurchases</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TotalPurchases]</local-name>
+            <parent-name>[TotalPurchasesPerUser.csv]</parent-name>
+            <remote-alias>TotalPurchases</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Total Purchases' datatype='integer' name='[TotalPurchases]' role='measure' type='quantitative' />
+      <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.482759' measure-ordering='alphabetic' measure-percentage='0.517241' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='ReceivedToPurchased+' inline='true' name='federated.1sbiyq90darm6h10ath4x19hfqxc' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='ReceivedToPurchased' name='textscan.1ms8tyo1nstajy15sp72a1qi48hh'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='ReceivedToPurchased.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='full' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[ReceivedToPurchased.csv].[UserID]' />
+              <expression op='[TotalAmountPerUser.csv].[UserID]' />
+            </expression>
+          </clause>
+          <relation join='full' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[ReceivedToPurchased.csv].[UserID]' />
+                <expression op='[TotalPurchasesPerUser.csv].[UserID]' />
+              </expression>
+            </clause>
+            <relation join='full' type='join'>
+              <clause type='join'>
+                <expression op='='>
+                  <expression op='[ReceivedToPurchased.csv].[UserID]' />
+                  <expression op='[ReceivedToReactedPerUser.csv].[userID]' />
+                </expression>
+              </clause>
+              <relation connection='textscan.1ms8tyo1nstajy15sp72a1qi48hh' name='ReceivedToPurchased.csv' table='[ReceivedToPurchased#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='UserID' ordinal='0' />
+                  <column datatype='integer' name='TotalReceived' ordinal='1' />
+                  <column datatype='integer' name='TotalPurchased' ordinal='2' />
+                </columns>
+              </relation>
+              <relation connection='textscan.1ms8tyo1nstajy15sp72a1qi48hh' name='ReceivedToReactedPerUser.csv' table='[ReceivedToReactedPerUser#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='userID' ordinal='0' />
+                  <column datatype='integer' name='totalReceived' ordinal='1' />
+                  <column datatype='integer' name='totalReactions' ordinal='2' />
+                </columns>
+              </relation>
+            </relation>
+            <relation connection='textscan.1ms8tyo1nstajy15sp72a1qi48hh' name='TotalPurchasesPerUser.csv' table='[TotalPurchasesPerUser#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                <column datatype='integer' name='UserID' ordinal='0' />
+                <column datatype='integer' name='TotalPurchases' ordinal='1' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='textscan.1ms8tyo1nstajy15sp72a1qi48hh' name='TotalAmountPerUser.csv' table='[TotalAmountPerUser#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='UserID' ordinal='0' />
+              <column datatype='real' name='TotalAmount' ordinal='1' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[TotalAmount]' value='[TotalAmountPerUser.csv].[TotalAmount]' />
+          <map key='[TotalPurchased]' value='[ReceivedToPurchased.csv].[TotalPurchased]' />
+          <map key='[TotalPurchases]' value='[TotalPurchasesPerUser.csv].[TotalPurchases]' />
+          <map key='[TotalReceived]' value='[ReceivedToPurchased.csv].[TotalReceived]' />
+          <map key='[UserID (TotalAmountPerUser.csv)]' value='[TotalAmountPerUser.csv].[UserID]' />
+          <map key='[UserID (TotalPurchasesPerUser.csv)]' value='[TotalPurchasesPerUser.csv].[UserID]' />
+          <map key='[UserID]' value='[ReceivedToPurchased.csv].[UserID]' />
+          <map key='[totalReactions]' value='[ReceivedToReactedPerUser.csv].[totalReactions]' />
+          <map key='[totalReceived]' value='[ReceivedToReactedPerUser.csv].[totalReceived]' />
+          <map key='[userID]' value='[ReceivedToReactedPerUser.csv].[userID]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UserID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[UserID]</local-name>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias>UserID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalReceived</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TotalReceived]</local-name>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias>TotalReceived</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalPurchased</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TotalPurchased]</local-name>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias>TotalPurchased</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>userID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[userID]</local-name>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias>userID</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalReceived</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[totalReceived]</local-name>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias>totalReceived</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalReactions</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[totalReactions]</local-name>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias>totalReactions</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[TotalPurchasesPerUser.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UserID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[UserID (TotalPurchasesPerUser.csv)]</local-name>
+            <parent-name>[TotalPurchasesPerUser.csv]</parent-name>
+            <remote-alias>UserID</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalPurchases</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TotalPurchases]</local-name>
+            <parent-name>[TotalPurchasesPerUser.csv]</parent-name>
+            <remote-alias>TotalPurchases</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[TotalAmountPerUser.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UserID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[UserID (TotalAmountPerUser.csv)]</local-name>
+            <parent-name>[TotalAmountPerUser.csv]</parent-name>
+            <remote-alias>UserID</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalAmount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[TotalAmount]</local-name>
+            <parent-name>[TotalAmountPerUser.csv]</parent-name>
+            <remote-alias>TotalAmount</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='ReactionToReceivedRate' datatype='real' name='[Calculation_279223231691403276]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[totalReactions] / [totalReceived] * 100' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Total Amount' datatype='real' name='[TotalAmount]' role='measure' type='quantitative' />
+      <column caption='Total Purchased' datatype='integer' name='[TotalPurchased]' role='measure' type='quantitative' />
+      <column caption='Total Purchases' datatype='integer' name='[TotalPurchases]' role='measure' type='quantitative' />
+      <column caption='Total Received' datatype='integer' name='[TotalReceived]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[UserID (TotalAmountPerUser.csv)]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[UserID (TotalPurchasesPerUser.csv)]' role='dimension' type='ordinal' />
+      <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+      <column caption='Total Reactions' datatype='integer' name='[totalReactions]' role='measure' type='quantitative' />
+      <column caption='Total Received1' datatype='integer' name='[totalReceived]' role='measure' type='quantitative' />
+      <column caption='User ID1' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.431855' measure-ordering='alphabetic' measure-percentage='0.568145' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='RatePerUser' inline='true' name='federated.1wpcy731ptmf6p116jwth02bgh49' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='ReceivedToPurchased' name='textscan.00w3k8n1awvw621ekh1uu09ashbo'>
+            <connection class='textscan' directory='/Users/rohankapadnis/Desktop/Qatch-Git/Qatch-Analytics-Project/data' filename='ReceivedToPurchased.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='full' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[ReceivedToPurchased.csv].[UserID]' />
+              <expression op='[TotalPurchasesPerUser.csv].[UserID]' />
+            </expression>
+          </clause>
+          <relation join='full' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[ReceivedToPurchased.csv].[UserID]' />
+                <expression op='[TotalAmountPerUser.csv].[UserID]' />
+              </expression>
+            </clause>
+            <relation join='full' type='join'>
+              <clause type='join'>
+                <expression op='='>
+                  <expression op='[ReceivedToPurchased.csv].[UserID]' />
+                  <expression op='[ReceivedToReactedPerUser.csv].[userID]' />
+                </expression>
+              </clause>
+              <relation connection='textscan.00w3k8n1awvw621ekh1uu09ashbo' name='ReceivedToPurchased.csv' table='[ReceivedToPurchased#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='UserID' ordinal='0' />
+                  <column datatype='integer' name='TotalReceived' ordinal='1' />
+                  <column datatype='integer' name='TotalPurchased' ordinal='2' />
+                </columns>
+              </relation>
+              <relation connection='textscan.00w3k8n1awvw621ekh1uu09ashbo' name='ReceivedToReactedPerUser.csv' table='[ReceivedToReactedPerUser#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='userID' ordinal='0' />
+                  <column datatype='integer' name='totalReceived' ordinal='1' />
+                  <column datatype='integer' name='totalReactions' ordinal='2' />
+                </columns>
+              </relation>
+            </relation>
+            <relation connection='textscan.00w3k8n1awvw621ekh1uu09ashbo' name='TotalAmountPerUser.csv' table='[TotalAmountPerUser#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                <column datatype='integer' name='UserID' ordinal='0' />
+                <column datatype='real' name='TotalAmount' ordinal='1' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='textscan.00w3k8n1awvw621ekh1uu09ashbo' name='TotalPurchasesPerUser.csv' table='[TotalPurchasesPerUser#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='UserID' ordinal='0' />
+              <column datatype='integer' name='TotalPurchases' ordinal='1' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[TotalAmount]' value='[TotalAmountPerUser.csv].[TotalAmount]' />
+          <map key='[TotalPurchased]' value='[ReceivedToPurchased.csv].[TotalPurchased]' />
+          <map key='[TotalPurchases]' value='[TotalPurchasesPerUser.csv].[TotalPurchases]' />
+          <map key='[TotalReceived]' value='[ReceivedToPurchased.csv].[TotalReceived]' />
+          <map key='[UserID (TotalAmountPerUser.csv)]' value='[TotalAmountPerUser.csv].[UserID]' />
+          <map key='[UserID (TotalPurchasesPerUser.csv)]' value='[TotalPurchasesPerUser.csv].[UserID]' />
+          <map key='[UserID]' value='[ReceivedToPurchased.csv].[UserID]' />
+          <map key='[totalReactions]' value='[ReceivedToReactedPerUser.csv].[totalReactions]' />
+          <map key='[totalReceived]' value='[ReceivedToReactedPerUser.csv].[totalReceived]' />
+          <map key='[userID]' value='[ReceivedToReactedPerUser.csv].[userID]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UserID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[UserID]</local-name>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias>UserID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalReceived</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TotalReceived]</local-name>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias>TotalReceived</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalPurchased</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TotalPurchased]</local-name>
+            <parent-name>[ReceivedToPurchased.csv]</parent-name>
+            <remote-alias>TotalPurchased</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>userID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[userID]</local-name>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias>userID</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalReceived</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[totalReceived]</local-name>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias>totalReceived</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalReactions</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[totalReactions]</local-name>
+            <parent-name>[ReceivedToReactedPerUser.csv]</parent-name>
+            <remote-alias>totalReactions</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[TotalAmountPerUser.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UserID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[UserID (TotalAmountPerUser.csv)]</local-name>
+            <parent-name>[TotalAmountPerUser.csv]</parent-name>
+            <remote-alias>UserID</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalAmount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[TotalAmount]</local-name>
+            <parent-name>[TotalAmountPerUser.csv]</parent-name>
+            <remote-alias>TotalAmount</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[TotalPurchasesPerUser.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UserID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[UserID (TotalPurchasesPerUser.csv)]</local-name>
+            <parent-name>[TotalPurchasesPerUser.csv]</parent-name>
+            <remote-alias>UserID</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalPurchases</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TotalPurchases]</local-name>
+            <parent-name>[TotalPurchasesPerUser.csv]</parent-name>
+            <remote-alias>TotalPurchases</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Total Amount' datatype='real' name='[TotalAmount]' role='measure' type='quantitative' />
+      <column caption='Total Purchased' datatype='integer' name='[TotalPurchased]' role='measure' type='quantitative' />
+      <column caption='Total Purchases' datatype='integer' name='[TotalPurchases]' role='measure' type='quantitative' />
+      <column caption='Total Received' datatype='integer' name='[TotalReceived]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[UserID (TotalAmountPerUser.csv)]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[UserID (TotalPurchasesPerUser.csv)]' role='dimension' type='ordinal' />
+      <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+      <column caption='Total Reactions' datatype='integer' name='[totalReactions]' role='measure' type='quantitative' />
+      <column caption='Total Received1' datatype='integer' name='[totalReceived]' role='measure' type='quantitative' />
+      <column caption='User ID1' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.448276' measure-ordering='alphabetic' measure-percentage='0.551724' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.00vo2hy0pqjj2b12c9zo51m16k8d'>
+      <datasources>
+        <datasource caption='ReceivedToPurchased' name='federated.00vo2hy0pqjj2b12c9zo51m16k8d' />
+      </datasources>
+      <datasource-dependencies datasource='federated.00vo2hy0pqjj2b12c9zo51m16k8d'>
+        <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+        <column-instance column='[UserID]' derivation='None' name='[none:UserID:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+        <column-instance column='[userID]' derivation='None' name='[none:userID:ok]' pivot='key' type='ordinal' />
+        <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]'>
+        <groupfilter function='level-members' level='[none:userID:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+        <target field='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[none:UserID:ok]' />
+      </filter>
+    </shared-view>
+    <shared-view name='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+      <datasources>
+        <datasource caption='ReceivedToReactedPerUser' name='federated.02asaug04k4e3i1h31y3l09b8k5a' />
+      </datasources>
+      <datasource-dependencies datasource='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+        <column-instance column='[userID]' derivation='None' name='[none:userID:ok]' pivot='key' type='ordinal' />
+        <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]'>
+        <groupfilter function='level-members' level='[none:userID:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+        <target field='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]' />
+      </filter>
+    </shared-view>
+    <shared-view name='federated.0cluej51i9mh9n16flact01cmxld'>
+      <datasources>
+        <datasource caption='TotalPurchasesPerUser' name='federated.0cluej51i9mh9n16flact01cmxld' />
+      </datasources>
+      <datasource-dependencies datasource='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+        <column-instance column='[userID]' derivation='None' name='[none:userID:ok]' pivot='key' type='ordinal' />
+        <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.0cluej51i9mh9n16flact01cmxld'>
+        <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+        <column-instance column='[UserID]' derivation='None' name='[none:UserID:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]'>
+        <groupfilter function='level-members' level='[none:userID:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+        <target field='[federated.0cluej51i9mh9n16flact01cmxld].[none:UserID:ok]' />
+      </filter>
+    </shared-view>
+    <shared-view name='federated.1e1j1jq1wxw8zx1h008j91hlr4zy'>
+      <datasources>
+        <datasource caption='TotalAmountPerUser' name='federated.1e1j1jq1wxw8zx1h008j91hlr4zy' />
+      </datasources>
+      <datasource-dependencies datasource='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+        <column-instance column='[userID]' derivation='None' name='[none:userID:ok]' pivot='key' type='ordinal' />
+        <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.1e1j1jq1wxw8zx1h008j91hlr4zy'>
+        <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+        <column-instance column='[UserID]' derivation='None' name='[none:UserID:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]'>
+        <groupfilter function='level-members' level='[none:userID:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+        <target field='[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[none:UserID:ok]' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='CommissionMonthWise'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='purchases' name='federated.1etqg271v8lhjy17tekpv1hrd1nq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1etqg271v8lhjy17tekpv1hrd1nq'>
+            <column caption='Commission' datatype='real' name='[commission]' role='measure' type='quantitative' />
+            <column-instance column='[purchase_date]' derivation='Day' name='[dy:purchase_date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[purchase_date]' derivation='Month' name='[mn:purchase_date:ok]' pivot='key' type='ordinal' />
+            <column caption='Purchase Date' datatype='date' name='[purchase_date]' role='dimension' type='ordinal' />
+            <column-instance column='[commission]' derivation='Sum' name='[sum:commission:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[purchase_date]' derivation='Year' name='[yr:purchase_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:commission:qk]</rows>
+        <cols>([federated.1etqg271v8lhjy17tekpv1hrd1nq].[yr:purchase_date:ok] / ([federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok] / [federated.1etqg271v8lhjy17tekpv1hrd1nq].[dy:purchase_date:ok]))</cols>
+      </table>
+      <simple-id uuid='{DBA5CF87-2F52-41EF-B61F-C0B87FA631FE}' />
+    </worksheet>
+    <worksheet name='CommissionPerMonth'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000'>Commission Per Month</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='purchases' name='federated.1etqg271v8lhjy17tekpv1hrd1nq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1etqg271v8lhjy17tekpv1hrd1nq'>
+            <column caption='Commission' datatype='real' name='[commission]' role='measure' type='quantitative' />
+            <column caption='Purchase Date' datatype='date' name='[purchase_date]' role='dimension' type='ordinal' />
+            <column-instance column='[commission]' derivation='Sum' name='[sum:commission:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[purchase_date]' derivation='Month-Trunc' name='[tmn:purchase_date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='tick-color' field='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:commission:qk]' value='#ffffff' />
+            <format attr='tick-color' field='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[tmn:purchase_date:qk]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='background-color' field='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:commission:qk]' value='#ffffff' />
+            <format attr='background-color' field='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[tmn:purchase_date:qk]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='caption'>
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f9a655' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:commission:qk]</rows>
+        <cols>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[tmn:purchase_date:qk]</cols>
+      </table>
+      <simple-id uuid='{CA8791E6-626F-4679-B019-889A3E364861}' />
+    </worksheet>
+    <worksheet name='NumberOfPurchasesPerMonth'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000'>Number of purchases per month</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='purchases' name='federated.1etqg271v8lhjy17tekpv1hrd1nq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1etqg271v8lhjy17tekpv1hrd1nq'>
+            <column-instance column='[purchase id]' derivation='Count' name='[cnt:purchase id:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[purchase_date]' derivation='Month' name='[mn:purchase_date:ok]' pivot='key' type='ordinal' />
+            <column caption='Purchase Id' datatype='integer' name='[purchase id]' role='dimension' type='ordinal' />
+            <column caption='Purchase Date' datatype='date' name='[purchase_date]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='background-color' field='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[cnt:purchase id:qk]' value='#ffffff' />
+            <format attr='background-color' field='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#499894' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[cnt:purchase id:qk]</rows>
+        <cols>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]</cols>
+      </table>
+      <simple-id uuid='{4BAA34F1-694C-4338-B048-9FE68F4348D8}' />
+    </worksheet>
+    <worksheet name='Received to purchase ratio'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000'>     Received To Purchase Ratio</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ReceivedToPurchased' name='federated.00vo2hy0pqjj2b12c9zo51m16k8d' />
+            <datasource caption='ReceivedToReactedPerUser' name='federated.02asaug04k4e3i1h31y3l09b8k5a' />
+          </datasources>
+          <datasource-dependencies datasource='federated.00vo2hy0pqjj2b12c9zo51m16k8d'>
+            <column caption='top10' datatype='boolean' name='[Calculation_279223231368228872]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='INDEX() &lt;= 20'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Ratio' datatype='real' name='[Calculation_279223231368802314]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='([TotalPurchased]) / ([TotalReceived]) *100' />
+            </column>
+            <column caption='Total Purchased' datatype='integer' name='[TotalPurchased]' role='measure' type='quantitative' />
+            <column caption='Total Received' datatype='integer' name='[TotalReceived]' role='measure' type='quantitative' />
+            <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+            <column-instance column='[UserID]' derivation='None' name='[none:UserID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_279223231368802314]' derivation='Sum' name='[sum:Calculation_279223231368802314:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_279223231368228872]' derivation='User' name='[usr:Calculation_279223231368228872:nk]' pivot='key' type='nominal'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+            <column-instance column='[userID]' derivation='None' name='[none:userID:ok]' pivot='key' type='ordinal' />
+            <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[none:UserID:ok]'>
+            <groupfilter from='1' function='range' level='[none:UserID:ok]' to='468' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[usr:Calculation_279223231368228872:nk]'>
+            <groupfilter function='member' level='[usr:Calculation_279223231368228872:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[none:UserID:ok]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[usr:Calculation_279223231368228872:nk]</column>
+            <column>[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[none:UserID:ok]</column>
+            <column>[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='1' field='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk]' field-type='quantitative' fold='true' scope='cols' synchronized='true' type='space' />
+            <format attr='display' class='1' field='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk]' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[none:UserID:ok]' value='16' />
+            <format attr='color' field='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='height-header' value='32' />
+            <format attr='background-color' field='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[none:UserID:ok]' value='#ffffff' />
+            <format attr='band-color' scope='cols' value='#ffffff' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='cols' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#ffbe7d' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='612' />
+                <format attr='maxwidth' value='612' />
+                <format attr='minheight' value='7560' />
+                <format attr='maxheight' value='7560' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#ffbe7d' />
+                <format attr='size' value='0.90055251121520996' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='612' />
+                <format attr='maxwidth' value='612' />
+                <format attr='minheight' value='7560' />
+                <format attr='maxheight' value='7560' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk]' x-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#ffbe7d' />
+                <format attr='size' value='1.9010497331619263' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='612' />
+                <format attr='maxwidth' value='612' />
+                <format attr='minheight' value='7560' />
+                <format attr='maxheight' value='7560' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.00vo2hy0pqjj2b12c9zo51m16k8d].[none:UserID:ok]</rows>
+        <cols>([federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk] + [federated.00vo2hy0pqjj2b12c9zo51m16k8d].[sum:Calculation_279223231368802314:qk])</cols>
+      </table>
+      <simple-id uuid='{105F2ACE-B41E-44FE-9E69-4E0F1E7A4CA7}' />
+    </worksheet>
+    <worksheet name='SalesAmountPerMonth'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000'>Sales Amount Per Month</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='purchases' name='federated.1etqg271v8lhjy17tekpv1hrd1nq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1etqg271v8lhjy17tekpv1hrd1nq'>
+            <column caption='Amount' datatype='real' name='[amount]' role='measure' type='quantitative' />
+            <column-instance column='[purchase_date]' derivation='Month' name='[mn:purchase_date:ok]' pivot='key' type='ordinal' />
+            <column caption='Purchase Date' datatype='date' name='[purchase_date]' role='dimension' type='ordinal' />
+            <column-instance column='[amount]' derivation='Sum' name='[sum:amount:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]' />
+              <wedge-size column='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:amount:qk]' />
+              <text column='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>&lt;</run>
+                <run>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='font-weight' value='bold' />
+                <format attr='font-size' value='10' />
+                <format attr='color' value='#ffffff' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='size' value='2' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#000000' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <mark-labels>
+          <mark-label id='0'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]</field>
+                  <field>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:amount:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>8</value>
+                <value>9767.0099999999984</value>
+              </tuple>
+            </tuple-reference>
+            <label-position x='35' y='-20' />
+          </mark-label>
+          <mark-label id='1'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]</field>
+                  <field>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:amount:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>6</value>
+                <value>5006.1700000000001</value>
+              </tuple>
+            </tuple-reference>
+            <label-position x='-15' y='-22' />
+          </mark-label>
+          <mark-label id='2'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]</field>
+                  <field>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:amount:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>7</value>
+                <value>11907.129999999994</value>
+              </tuple>
+            </tuple-reference>
+            <label-position x='-12' y='37' />
+          </mark-label>
+        </mark-labels>
+      </table>
+      <simple-id uuid='{4272B051-1F39-4B70-8B46-5058A18D7E62}' />
+    </worksheet>
+    <worksheet name='SalesMonthWise'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='purchases' name='federated.1etqg271v8lhjy17tekpv1hrd1nq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1etqg271v8lhjy17tekpv1hrd1nq'>
+            <column caption='Amount' datatype='real' name='[amount]' role='measure' type='quantitative' />
+            <column-instance column='[purchase_date]' derivation='Day' name='[dy:purchase_date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[purchase_date]' derivation='Month' name='[mn:purchase_date:ok]' pivot='key' type='ordinal' />
+            <column caption='Purchase Date' datatype='date' name='[purchase_date]' role='dimension' type='ordinal' />
+            <column-instance column='[amount]' derivation='Sum' name='[sum:amount:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[purchase_date]' derivation='Year' name='[yr:purchase_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:amount:qk]</rows>
+        <cols>([federated.1etqg271v8lhjy17tekpv1hrd1nq].[yr:purchase_date:ok] / ([federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok] / [federated.1etqg271v8lhjy17tekpv1hrd1nq].[dy:purchase_date:ok]))</cols>
+      </table>
+      <simple-id uuid='{7C23D5C5-68D5-48F5-8514-5740DABA5C0C}' />
+    </worksheet>
+    <worksheet name='SentToReactionRatePerUser'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>Received to Reaction Rate Per User </run>
+            <run>(Minimum 60 Received )</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ReceivedToReactedPerUser' name='federated.02asaug04k4e3i1h31y3l09b8k5a' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+            <column caption='ReactionToSentRatio' datatype='real' name='[Calculation_279223231353995270]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[totalReactions] / [totalReceived] * 100' />
+            </column>
+            <column-instance column='[totalReactions]' derivation='None' name='[none:totalReactions:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[userID]' derivation='None' name='[none:userID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_279223231353995270]' derivation='Sum' name='[sum:Calculation_279223231353995270:qk]' pivot='key' type='quantitative' />
+            <column caption='Total Reactions' datatype='integer' name='[totalReactions]' role='measure' type='quantitative' />
+            <column caption='Total Received' datatype='integer' name='[totalReceived]' role='measure' type='quantitative' />
+            <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:totalReactions:qk]' included-values='in-range'>
+            <min>60</min>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.02asaug04k4e3i1h31y3l09b8k5a].[sum:Calculation_279223231353995270:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:totalReactions:qk]</column>
+            <column>[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]' value='124' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='height' field='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]' value='20' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#b07aa1' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='524' />
+                <format attr='maxheight' value='524' />
+                <format attr='minwidth' value='40' />
+                <format attr='maxwidth' value='40' />
+                <format attr='aspect' value='0' />
+                <format attr='minwidth' value='40' />
+                <format attr='maxwidth' value='40' />
+                <format attr='minheight' value='628' />
+                <format attr='maxheight' value='628' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.02asaug04k4e3i1h31y3l09b8k5a].[sum:Calculation_279223231353995270:qk]</rows>
+        <cols>[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]</cols>
+      </table>
+      <simple-id uuid='{99320D85-C0DF-44E1-8676-6F42413AADBD}' />
+    </worksheet>
+    <worksheet name='TimeOfTheDayNumberOfReactions'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#000000'>      Reaction - Time of Day</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='reactions' name='federated.1mvl5ga0k6rodv11p3s4p128isxi' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1mvl5ga0k6rodv11p3s4p128isxi'>
+            <column-instance column='[reaction_type]' derivation='Count' name='[cnt:reaction_type:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[inbound_ text _date]' derivation='Hour' name='[hr:inbound_ text _date:ok]' pivot='key' type='ordinal' />
+            <column caption='Inbound  Text  Date' datatype='datetime' name='[inbound_ text _date]' role='dimension' type='ordinal' />
+            <column aggregation='CountD' caption='Reaction Type' datatype='string' name='[reaction_type]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='background-color' field='[federated.1mvl5ga0k6rodv11p3s4p128isxi].[cnt:reaction_type:qk]' value='#ffffff' />
+            <format attr='background-color' field='[federated.1mvl5ga0k6rodv11p3s4p128isxi].[hr:inbound_ text _date:ok]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='2.7734806537628174' />
+                <format attr='mark-color' value='#ba9582' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1mvl5ga0k6rodv11p3s4p128isxi].[cnt:reaction_type:qk]</rows>
+        <cols>[federated.1mvl5ga0k6rodv11p3s4p128isxi].[hr:inbound_ text _date:ok]</cols>
+      </table>
+      <simple-id uuid='{102D441C-DD1E-49A4-A9B3-B3FDDF48B2A1}' />
+    </worksheet>
+    <worksheet name='Total Liked, Loved, Disliked'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000'>Total number  - Liked, Loved, Disliked</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='reactions' name='federated.1mvl5ga0k6rodv11p3s4p128isxi' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1mvl5ga0k6rodv11p3s4p128isxi'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[reaction_type]' derivation='None' name='[none:reaction_type:nk]' pivot='key' type='nominal' />
+            <column aggregation='CountD' caption='Reaction Type' datatype='string' name='[reaction_type]' role='dimension' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='background-color' field='[federated.1mvl5ga0k6rodv11p3s4p128isxi].[sum:Number of Records:qk]' value='#ffffff' />
+            <format attr='background-color' field='[federated.1mvl5ga0k6rodv11p3s4p128isxi].[none:reaction_type:nk]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1mvl5ga0k6rodv11p3s4p128isxi].[none:reaction_type:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1mvl5ga0k6rodv11p3s4p128isxi].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1mvl5ga0k6rodv11p3s4p128isxi].[none:reaction_type:nk]</cols>
+      </table>
+      <simple-id uuid='{34155C85-3416-4723-B4DF-A9196924ED87}' />
+    </worksheet>
+    <worksheet name='TotalAmountPerUser'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000'>Total Sales Amount Per User</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='TotalAmountPerUser' name='federated.1e1j1jq1wxw8zx1h008j91hlr4zy' />
+            <datasource caption='ReceivedToReactedPerUser' name='federated.02asaug04k4e3i1h31y3l09b8k5a' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+            <column-instance column='[userID]' derivation='None' name='[none:userID:ok]' pivot='key' type='ordinal' />
+            <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1e1j1jq1wxw8zx1h008j91hlr4zy'>
+            <column caption='top30' datatype='boolean' name='[Calculation_279223231374020619]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='INDEX() &lt;= 30'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Total Amount' datatype='real' name='[TotalAmount]' role='measure' type='quantitative' />
+            <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+            <column-instance column='[UserID]' derivation='None' name='[none:UserID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[TotalAmount]' derivation='Sum' name='[sum:TotalAmount:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_279223231374020619]' derivation='User' name='[usr:Calculation_279223231374020619:nk]' pivot='key' type='nominal'>
+              <table-calc ordering-type='Rows' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[usr:Calculation_279223231374020619:nk]'>
+            <groupfilter function='member' level='[usr:Calculation_279223231374020619:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[none:UserID:ok]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[sum:TotalAmount:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[usr:Calculation_279223231374020619:nk]</column>
+            <column>[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='tick-color' field='[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[sum:TotalAmount:qk]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='background-color' field='[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[sum:TotalAmount:qk]' value='#ffffff' />
+            <format attr='background-color' field='[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[none:UserID:ok]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f1ce63' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[sum:TotalAmount:qk]</rows>
+        <cols>[federated.1e1j1jq1wxw8zx1h008j91hlr4zy].[none:UserID:ok]</cols>
+      </table>
+      <simple-id uuid='{A11AE67D-B46A-4534-BFC2-BC066BD515CC}' />
+    </worksheet>
+    <worksheet name='TotalPurchasesPerUser'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>Total Purchases Per User</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='TotalPurchasesPerUser' name='federated.0cluej51i9mh9n16flact01cmxld' />
+            <datasource caption='ReceivedToReactedPerUser' name='federated.02asaug04k4e3i1h31y3l09b8k5a' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+            <column-instance column='[userID]' derivation='None' name='[none:userID:ok]' pivot='key' type='ordinal' />
+            <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0cluej51i9mh9n16flact01cmxld'>
+            <column caption='Total Purchases' datatype='integer' name='[TotalPurchases]' role='measure' type='quantitative' />
+            <column caption='User ID' datatype='integer' name='[UserID]' role='dimension' type='ordinal' />
+            <column-instance column='[UserID]' derivation='None' name='[none:UserID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[TotalPurchases]' derivation='Sum' name='[sum:TotalPurchases:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <size column='[federated.0cluej51i9mh9n16flact01cmxld].[sum:TotalPurchases:qk]' />
+              <text column='[federated.0cluej51i9mh9n16flact01cmxld].[none:UserID:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-color' value='#499894' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{CE363C27-0541-4AB2-A071-E357769FD314}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size maxheight='1000' maxwidth='1600' minheight='1000' minwidth='1600' preset-index='18' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98400' id='8' param='horz' type='layout-flow' w='99000' x='500' y='800'>
+            <zone h='98400' id='6' type='layout-basic' w='80125' x='500' y='800'>
+              <zone h='49200' id='3' name='CommissionPerMonth' w='80125' x='500' y='800'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49200' id='5' name='SalesAmountPerMonth' w='17366' x='500' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49200' id='11' name='NumberOfPurchasesPerMonth' w='62759' x='17866' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='302' h='98400' id='7' is-fixed='true' param='vert' type='layout-flow' w='18875' x='80625' y='800'>
+              <zone fixed-size='24' h='3200' id='9' is-fixed='true' name='SalesAmountPerMonth' pane-specification-id='0' param='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:amount:qk]' type='size' w='18875' x='80625' y='800'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8600' id='10' name='SalesAmountPerMonth' pane-specification-id='0' param='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]' type='color' w='18875' x='80625' y='4000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone fixed-size='836' forceUpdate='true' h='84400' id='12' is-fixed='true' type='text' w='18875' x='80625' y='12600'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1100' minheight='1100' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='44' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98400' id='43' param='vert' type='layout-flow' w='99000' x='500' y='800'>
+                <zone fixed-size='280' h='49200' id='3' is-fixed='true' name='CommissionPerMonth' w='80125' x='500' y='800'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='836' forceUpdate='true' h='84400' id='12' type='text' w='18875' x='80625' y='12600'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49200' id='5' is-fixed='true' name='SalesAmountPerMonth' w='17366' x='500' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='24' h='3200' id='9' name='SalesAmountPerMonth' pane-specification-id='0' param='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[sum:amount:qk]' type='size' w='18875' x='80625' y='800'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8600' id='10' name='SalesAmountPerMonth' pane-specification-id='0' param='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]' type='color' w='18875' x='80625' y='4000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49200' id='11' is-fixed='true' name='NumberOfPurchasesPerMonth' w='62759' x='17866' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{91E60320-7AE3-468B-BBE6-5A497908A8E9}' />
+    </dashboard>
+    <dashboard name='Dashboard 2'>
+      <style />
+      <size maxheight='800' maxwidth='1100' minheight='800' minwidth='1100' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='11' param='vert' type='layout-flow' w='98546' x='727' y='1000'>
+            <zone h='98000' id='7' param='horz' type='layout-flow' w='98546' x='727' y='1000'>
+              <zone h='98000' id='5' type='layout-basic' w='19273' x='727' y='1000'>
+                <zone h='98000' id='3' name='Total Liked, Loved, Disliked' w='19273' x='727' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone fixed-size='872' h='98000' id='6' is-fixed='true' param='horz' type='layout-flow' w='79273' x='20000' y='1000'>
+                <zone fixed-size='518' h='98000' id='9' is-fixed='true' name='TimeOfTheDayNumberOfReactions' w='47818' x='20000' y='1000'>
+                  <layout-cache minheight='184' type-h='scalable' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='98000' id='34' param='horz' type='layout-flow' w='31455' x='67818' y='1000'>
+                  <zone forceUpdate='true' h='98000' id='35' type='text' w='31455' x='67818' y='1000'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='45' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='44' param='vert' type='layout-flow' w='98546' x='727' y='1000'>
+                <zone fixed-size='280' h='98000' id='3' is-fixed='true' name='Total Liked, Loved, Disliked' w='19273' x='727' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='98000' id='9' is-fixed='true' name='TimeOfTheDayNumberOfReactions' w='47818' x='20000' y='1000'>
+                  <layout-cache minheight='184' type-h='scalable' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='98000' id='35' type='text' w='31455' x='67818' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{D959B793-0069-4673-817B-651D199DD8F5}' />
+    </dashboard>
+    <dashboard name='Dashboard 4'>
+      <style />
+      <size maxheight='1514' maxwidth='1600' minheight='1514' minwidth='1600' preset-index='18' sizing-mode='fixed' />
+      <datasources>
+        <datasource caption='ReceivedToReactedPerUser' name='federated.02asaug04k4e3i1h31y3l09b8k5a' />
+      </datasources>
+      <datasource-dependencies datasource='federated.02asaug04k4e3i1h31y3l09b8k5a'>
+        <column-instance column='[userID]' derivation='None' name='[none:userID:ok]' pivot='key' type='ordinal' />
+        <column caption='User ID' datatype='integer' name='[userID]' role='dimension' type='ordinal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98944' id='26' param='vert' type='layout-flow' w='99000' x='500' y='528'>
+            <zone h='98944' id='24' type='layout-basic' w='99000' x='500' y='528'>
+              <zone h='68310' id='10' param='horz' type='layout-flow' w='99000' x='500' y='528'>
+                <zone h='68310' id='8' type='layout-basic' w='89000' x='500' y='528'>
+                  <zone h='34148' id='3' name='SentToReactionRatePerUser' w='44500' x='500' y='528'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='34162' id='5' name='Received to purchase ratio' w='44500' x='500' y='34676'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='34148' id='6' name='TotalPurchasesPerUser' w='44500' x='45000' y='528'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='34162' id='7' name='TotalAmountPerUser' w='44500' x='45000' y='34676'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+                <zone fixed-size='160' h='68310' id='9' is-fixed='true' param='vert' type='layout-flow' w='10000' x='89500' y='528'>
+                  <zone h='68310' id='11' name='SentToReactionRatePerUser' param='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]' type='filter' values='database' w='10000' x='89500' y='528'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='30634' id='22' param='vert' type='layout-flow' w='99000' x='500' y='68838'>
+                <zone fixed-size='424' forceUpdate='true' h='28533' id='23' is-fixed='true' type='text' w='99000' x='500' y='68838'>
+                  <formatted-text>
+                    <run fontcolor='#4e79a7' fontsize='16'>Reaction Rate per user</run>
+                    <run fontcolor='#4e79a7' fontsize='20'>Æ </run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- This KPI takes in total number of texts one user receives and total number of reactions by the user. </run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- Formula : [Total Reactions] / [Total Texts Received]*100</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- This KPI helps in understanding what is the rate at which Qatch’s     recommendations are being reacted to. It will help in understanding whether the recommendations are relevant to the user and how engaged the users are. </run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#4e79a7' fontsize='16'>Purchase Rate per user(Received to Purchase ratio)</run>
+                    <run fontcolor='#4e79a7' fontsize='20'>Æ </run>
+                    <run>&#10;- </run>
+                    <run fontcolor='#000000' fontsize='12'>This KPI is similar to the previous one. But instead of the number of Reactions, I have taken total number of Purchases</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- The formula is given by : </run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>[Total Purchases] / [Total Texts Received] * 100</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- This KPI helps in understanding whether the recommendations are relevant to the user and how those recommendations are getting converted to purchases by the users. </run>
+                    <run>Æ&#10;&#10;&#10;&#10;&#10;&#10;</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1300' minheight='1300' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='48' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98944' id='47' param='vert' type='layout-flow' w='99000' x='500' y='528'>
+                <zone h='68310' id='11' mode='checkdropdown' name='SentToReactionRatePerUser' param='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]' type='filter' values='database' w='10000' x='89500' y='528'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='34148' id='3' is-fixed='true' name='SentToReactionRatePerUser' w='44500' x='500' y='528'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='34148' id='6' is-fixed='true' name='TotalPurchasesPerUser' w='44500' x='45000' y='528'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='34162' id='5' is-fixed='true' name='Received to purchase ratio' w='44500' x='500' y='34676'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='34162' id='7' is-fixed='true' name='TotalAmountPerUser' w='44500' x='45000' y='34676'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='424' forceUpdate='true' h='28533' id='23' type='text' w='99000' x='500' y='68838'>
+                  <formatted-text>
+                    <run fontcolor='#4e79a7' fontsize='16'>Reaction Rate per user</run>
+                    <run fontcolor='#4e79a7' fontsize='20'>Æ </run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- This KPI takes in total number of texts one user receives and total number of reactions by the user. </run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- Formula : [Total Reactions] / [Total Texts Received]*100</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- This KPI helps in understanding what is the rate at which Qatch’s     recommendations are being reacted to. It will help in understanding whether the recommendations are relevant to the user and how engaged the users are. </run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#4e79a7' fontsize='16'>Purchase Rate per user(Received to Purchase ratio)</run>
+                    <run fontcolor='#4e79a7' fontsize='20'>Æ </run>
+                    <run>&#10;- </run>
+                    <run fontcolor='#000000' fontsize='12'>This KPI is similar to the previous one. But instead of the number of Reactions, I have taken total number of Purchases</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- The formula is given by : </run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>[Total Purchases] / [Total Texts Received] * 100</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>- This KPI helps in understanding whether the recommendations are relevant to the user and how those recommendations are getting converted to purchases by the users. </run>
+                    <run>Æ&#10;&#10;&#10;&#10;&#10;&#10;</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{FFDBD625-34A0-470E-9A4E-D9B63D0854F3}' />
+    </dashboard>
+    <dashboard name='Dashboard 5'>
+      <style />
+      <size maxheight='800' maxwidth='1500' minheight='800' minwidth='1500' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='3' is-scaled='1' param='/Users/rohankapadnis/Downloads/1606353949441.jpeg' type='bitmap' w='42828' x='533' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone forceUpdate='true' h='98000' id='5' type='text' w='56106' x='43361' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='37' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='36' param='vert' type='layout-flow' w='98934' x='533' y='1000'>
+                <zone fixed-size='280' h='98000' id='3' is-fixed='true' is-scaled='1' param='/Users/rohankapadnis/Downloads/1606353949441.jpeg' type='bitmap' w='42828' x='533' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='98000' id='5' type='text' w='56106' x='43361' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{9BB4B943-FFBB-464A-B37E-86E3019447FB}' />
+    </dashboard>
+    <dashboard name='QatchVisualReport' type='storyboard'>
+      <layout-options export-orientation='landscape'>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#4e79a7' fontsize='28'>How can we measure success?</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style>
+        <style-rule element='table'>
+          <format attr='background-color' value='#dfedeb' />
+        </style-rule>
+        <style-rule element='story-point-caption'>
+          <format attr='width' value='357' />
+        </style-rule>
+      </style>
+      <size maxheight='1064' maxwidth='1716' minheight='1064' minwidth='1716' />
+      <zones>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98496' id='9' param='vert' removable='false' type='layout-flow' w='99068' x='466' y='752'>
+            <zone h='5545' id='10' type='title' w='99068' x='466' y='752'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='92951' id='7' param='vert' removable='false' type='layout-flow' w='99068' x='466' y='6297'>
+              <zone h='92951' id='1' param='vert' removable='false' type='layout-flow' w='99068' x='466' y='6297'>
+                <zone h='9492' id='4' is-fixed='true' paired-zone-id='5' removable='false' type='flipboard-nav' w='99068' x='466' y='6297' />
+                <zone h='83459' id='5' paired-zone-id='4' removable='false' type='flipboard' w='99068' x='466' y='15789'>
+                  <flipboard active-id='3' nav-type='caption' show-nav-arrows='true'>
+                    <story-points>
+                      <story-point caption='Overview' captured-sheet='Dashboard 5' id='3'>
+                        <capturedDeltas>
+                          <dashboard name='Dashboard 5'>
+                            <zone id='5'>
+                              <formatted-text>
+                                <run fontcolor='#4e79a7' fontsize='24'>Overview</run>
+                                <run>Æ&#10;&#10;</run>
+                                <run fontcolor='#000000' fontsize='16'>This project is based on Qatch&apos;s data on outbound_texts, reactions and purchases. Aim being answering the question &quot;</run>
+                                <run bold='true' fontcolor='#000000' fontsize='16'>How can we measure success?</run>
+                                <run fontcolor='#000000' fontsize='16'>&quot; </run>
+                                <run>Æ&#10;&#10;&#10;</run>
+                                <run fontcolor='#000000' fontsize='16'>I have tried to curate a data driven story made of dashboards and key insights that I gained while in the process of answering the above question. </run>
+                              </formatted-text>
+                            </zone>
+                          </dashboard>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point caption='Conversion Rate, Reaction Rate, Total Purchases per user and Total Sales per user' captured-sheet='Dashboard 4' id='2'>
+                        <capturedDeltas>
+                          <dashboard name='Dashboard 4'>
+                            <zone id='23'>
+                              <formatted-text>
+                                <run fontcolor='#4e79a7' fontsize='16'>Reaction Rate per user</run>
+                                <run fontcolor='#4e79a7' fontsize='20'>Æ </run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>- This KPI takes in total number of texts one user receives and total number of reactions by the user. </run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>- Formula : [Total Reactions] / [Total Texts Received]*100</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>- This KPI helps in understanding what is the rate at which Qatch’s     recommendations are being reacted to. It will help in understanding whether the recommendations are relevant to the user and how engaged the users are. </run>
+                                <run>Æ&#10;&#10;</run>
+                                <run fontcolor='#4e79a7' fontsize='16'>Purchase Rate per user(Received to Purchase ratio)</run>
+                                <run fontcolor='#4e79a7' fontsize='20'>Æ </run>
+                                <run>&#10;- </run>
+                                <run fontcolor='#000000' fontsize='12'>This KPI is similar to the previous one. But instead of the number of Reactions, I have taken total number of Purchases</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>- The formula is given by : </run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>[Total Purchases] / [Total Texts Received] * 100</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>- This KPI helps in understanding whether the recommendations are relevant to the user and how those recommendations are getting converted to purchases by the users. </run>
+                                <run>Æ&#10;&#10;</run>
+                                <run fontcolor='#4e79a7' fontsize='16'>Total Purchases and Sales per user</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#4e79a7' fontsize='16'>- </run>
+                                <run fontcolor='#000000' fontsize='12'>Total purchases per user and Total Sales per user are two factors that give useful information to improve the company&apos;s success with respect to users</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>- Users with most sales and most purchases help in identifying the potential customers that are most likely to buy products. Hence providing promotional offers to these users can help in retention of these premium users as they help in the company’s growth. </run>
+                                <run>Æ&#10;&#10;&#10;&#10;&#10;&#10;</run>
+                              </formatted-text>
+                            </zone>
+                          </dashboard>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point caption='Sales Amount, Commission Per Month, Number of purchases per month ' captured-sheet='Dashboard 1' id='1'>
+                        <capturedDeltas>
+                          <dashboard name='Dashboard 1'>
+                            <zone id='12'>
+                              <formatted-text>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#4e79a7' fontsize='20'>Commision Per Month</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='16'>- </run>
+                                <run fontcolor='#000000' fontsize='12'>Commission per month is an important KPI as the trend would allow us to identify how well the company is doing in terms of profits. As you can see the number of purchases from July to August are increasing while the commission is dropping. Which could mean that users are buying products whose commission percentage is low. </run>
+                                <run>Æ&#10;&#10;</run>
+                                <run fontcolor='#4e79a7' fontsize='20'>Sales Per Month</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='16'>- </run>
+                                <run fontcolor='#000000' fontsize='12'>Sales Growth is one of the most important KPIs when it comes to marketing analysis. It helps in detemining how well company performs in terms of sales. Interestingly, in our case there was decrease in the sales amount from July to August but increase in the number of purchase during the same time. It can be said that this is happening because users are preferring products of relatively low rates. </run>
+                                <run fontcolor='#000000' fontsize='16'>Æ </run>
+                                <run>Æ&#10;&#10;</run>
+                                <run fontcolor='#4e79a7' fontsize='20'>Number of Purchases Per Month</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>- Number of Purchases helps in determining how the company is doing in terms of quantity of products sold over time. Better the recommendaton, more is the chances of the product being purchased. </run>
+                                <run>Æ&#10;</run>
+                              </formatted-text>
+                            </zone>
+                          </dashboard>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point caption='Total Number of Reactions for Liked, Loved and Disliked' captured-sheet='Dashboard 2' id='4'>
+                        <capturedDeltas>
+                          <dashboard name='Dashboard 2'>
+                            <zone id='35'>
+                              <formatted-text>
+                                <run fontcolor='#4e79a7' fontsize='16'>Total Number - Liked, Loved, Disliked</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>- User Reactions are very important when it comes to Qatch, as it is a data driven company and finding the general count of every reaction can help in identifying how well the recommendations are working. As of now for the 3 months, the count of likes are more than the dislikes but there isn&apos;t a significant difference. Hence, the aim of the company should be to try to maximise the loved and likes count and minimize the disliked count as that would yeild better purchase conversions</run>
+                                <run>Æ&#10;&#10;</run>
+                                <run fontcolor='#4e79a7' fontsize='16'>Reaction at Time of the Day</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>- Reaction-Time of the day is the plot of Number of Reactions to Time of the Day(Hours)</run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>Interestingly, the number of reactions increase from the 3pm hour mark upto 6hr mark and then start dropping till the end of the day. </run>
+                                <run>Æ&#10;</run>
+                                <run fontcolor='#000000' fontsize='12'>Hence, it can be said that outbound_texts sent out during 3pm to 8pm can result in higher reaction rate hence improved engagement rate. </run>
+                              </formatted-text>
+                            </zone>
+                          </dashboard>
+                        </capturedDeltas>
+                      </story-point>
+                    </story-points>
+                  </flipboard>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{3100D66E-409A-4B13-B474-A07D907D385C}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='240'>
+    <window class='worksheet' name='SalesMonthWise'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F31EF11C-254C-4EA5-9F23-9E3049FCBB79}' />
+    </window>
+    <window class='worksheet' name='CommissionMonthWise'>
+      <cards>
+        <edge name='left'>
+          <strip size='100'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2B048685-034B-4EB2-A8AF-A8511B6431B7}' />
+    </window>
+    <window class='worksheet' name='SentToReactionRatePerUser'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card size='30' type='pages' />
+            <card size='46' type='filters' />
+            <card size='175' type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='94'>
+            <card type='caption' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='checkdropdown' param='[federated.02asaug04k4e3i1h31y3l09b8k5a].[none:userID:ok]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BFC2401A-1747-4ADD-81C6-F8F8700511CD}' />
+    </window>
+    <window class='worksheet' name='TotalPurchasesPerUser'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D0690771-0EF0-4E6C-8D1C-414FB17B3129}' />
+    </window>
+    <window class='worksheet' name='TotalAmountPerUser'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{ADCE1CAB-FAC3-4291-A170-3412B05FAB2F}' />
+    </window>
+    <window class='worksheet' name='SalesAmountPerMonth'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1etqg271v8lhjy17tekpv1hrd1nq].[mn:purchase_date:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{18A2F8E4-BAA9-43EE-AD49-B11B2910BF3D}' />
+    </window>
+    <window class='worksheet' name='CommissionPerMonth'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AF8CCB2E-CB3A-4F5B-9989-C709BE4846C0}' />
+    </window>
+    <window class='worksheet' name='TimeOfTheDayNumberOfReactions'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D17F77E4-0163-45FA-9ED3-F4D0FF036A39}' />
+    </window>
+    <window class='worksheet' name='NumberOfPurchasesPerMonth'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{6F1EAB11-6BBE-44BB-BDDE-6D4432A013A7}' />
+    </window>
+    <window class='worksheet' name='Received to purchase ratio'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CFFB781B-8459-4DA2-9990-BCC647D5F6FA}' />
+    </window>
+    <window class='worksheet' name='Total Liked, Loved, Disliked'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1mvl5ga0k6rodv11p3s4p128isxi].[none:reaction_type:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{83BF4CCF-E0B5-4C0E-A905-C7B5D476B29F}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='CommissionPerMonth'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='NumberOfPurchasesPerMonth'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='SalesAmountPerMonth' />
+      </viewpoints>
+      <active id='12' />
+      <simple-id uuid='{3BEB551D-8114-4FCA-B2E3-2341E0BC5C46}' />
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='TimeOfTheDayNumberOfReactions' />
+        <viewpoint name='Total Liked, Loved, Disliked'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='35' />
+      <simple-id uuid='{99BF583B-55E2-4E3D-BEB9-D8565B17CAA2}' />
+    </window>
+    <window class='dashboard' name='Dashboard 4'>
+      <viewpoints>
+        <viewpoint name='Received to purchase ratio' />
+        <viewpoint name='SentToReactionRatePerUser'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='TotalAmountPerUser'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='TotalPurchasesPerUser' />
+      </viewpoints>
+      <active id='23' />
+      <simple-id uuid='{DC65C0E6-BB93-466B-B3BD-B3CAABED6981}' />
+    </window>
+    <window class='dashboard' maximized='true' name='QatchVisualReport'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{7B5C0080-5F96-4EFC-9C3A-A3D7104CDC66}' />
+    </window>
+    <window class='dashboard' name='Dashboard 5'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{BD6D3D30-A09E-45D2-85AB-24842AA637E1}' />
+    </window>
+  </windows>
+</workbook>
